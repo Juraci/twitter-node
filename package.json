@@ -1,0 +1,22 @@
+{
+  "name": "twitter-node",
+  "version": "1.0.0",
+  "description": "Experiments using twitter API",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juraci/twitter-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juraci/twitter-node/issues"
+  },
+  "homepage": "https://github.com/Juraci/twitter-node#readme",
+  "dependencies": {
+    "request": "^2.69.0"
+  }
+}
