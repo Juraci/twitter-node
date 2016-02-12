@@ -33,7 +33,6 @@ app.get('/tweets/:username', function(req, response) {
             console.log(error);
         });
     });
-
 });
 
 app.listen(3000);
