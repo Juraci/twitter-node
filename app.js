@@ -3,13 +3,13 @@ var OAUTH2 = require('./lib/oauth2.js');
 var app = express();
 
 app.get('/tweets/:username', function(req, response) {
-
+    console.log('request received!');
     var username = req.params.username;
 
     OAUTH2.getBearerToken(function(err, token, reqst) {
         if (err) {
             console.log(err);
-            return err;
+            throw err;
         }
 
         var options = {
@@ -27,10 +27,10 @@ app.get('/tweets/:username', function(req, response) {
             tweets.forEach(function(tweet) {
                 messages.push(tweet.text);
             });
-            response.send(messages);
+            response.status(200).send(messages);
         })
         .on('error', function(error) {
-            console.log(error);
+            throw error;
         });
     });
 });
