@@ -4,7 +4,8 @@
   "description": "Experiments using twitter API",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,9 @@
   "dependencies": {
     "express": "^4.13.4",
     "request": "^2.69.0"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "jasmine-spec-reporter": "^2.4.0"
   }
 }
