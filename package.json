@@ -4,7 +4,7 @@
   "description": "Experiments using twitter API",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/low-granularity/*.js",
+    "test": "mocha",
     "start": "node app.js"
   },
   "repository": {

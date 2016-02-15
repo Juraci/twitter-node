@@ -6,7 +6,7 @@ describe('GET /tweets/:username', function() {
     var server;
 
     beforeEach(function() {
-        server = require('../../server.js')();
+        server = require('../server.js')();
     });
 
     afterEach(function(done) {
@@ -19,7 +19,7 @@ describe('GET /tweets/:username', function() {
         .get('/tweets/JuraciVieira_')
         .end(function(err, res) {
             expect(res.status).to.equal(200);
-            expect(res.body.length).to.below(10);
+            expect(res.body.length).to.be.below(11);
             done();
         });
     });
