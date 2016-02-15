@@ -36,7 +36,9 @@ var makeServer = function() {
         });
     });
 
-    var server = app.listen(3000);
+    var server = app.listen(3000, function() {
+         console.log('server listening');
+    });
     return server;
 };
 
