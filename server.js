@@ -1,13 +1,15 @@
 var makeServer = function() {
     var request = require('request');
     var express = require('express');
+    var app = express();
+
     var args = {
         req: request,
         consumerKey: process.env.consumerKey,
         consumerSecret: process.env.consumerSecret
     };
+
     var OAUTH2 = require('./lib/oauth2.js')(args);
-    var app = express();
 
     app.get('/tweets/:username', function(req, response) {
         console.log('request received!');
