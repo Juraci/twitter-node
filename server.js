@@ -15,12 +15,8 @@ var makeServer = function() {
         console.log('request received!');
         var username = req.params.username;
 
-        OAUTH2.getBearerToken(function(err, token, reqst) {
-            if (err) {
-                console.log(err);
-                throw err;
-            }
-
+        OAUTH2.getBearerToken()
+        .then(function(token) {
             var options = {
                 url: 'https://api.twitter.com/1.1/statuses/user_timeline.json',
                 headers: {
@@ -29,7 +25,7 @@ var makeServer = function() {
                 qs: { screen_name: username, count: 10 },
             };
 
-            reqst
+            request
             .get(options, function(error, resp, body) {
                 var tweets = JSON.parse(body);
                 var messages = [];
@@ -41,6 +37,9 @@ var makeServer = function() {
             .on('error', function(error) {
                 throw error;
             });
+        })
+        .catch(function(err) {
+            console.log(err);
         });
     });
 
