@@ -1,7 +1,13 @@
 var makeServer = function() {
     var request = require('request');
     var express = require('express');
+    var cors = require('cors');
     var app = express();
+
+    var corsOptions = {
+        origin: 'http://localhost:8080',
+        methods: 'GET'
+    };
 
     var args = {
         req: request,
@@ -11,7 +17,7 @@ var makeServer = function() {
 
     var OAUTH2 = require('./lib/oauth2.js')(args);
 
-    app.get('/tweets/:username', function(req, response) {
+    app.get('/tweets/:username', cors(corsOptions), function(req, response, next) {
         console.log('request received!');
         var username = req.params.username;
 
